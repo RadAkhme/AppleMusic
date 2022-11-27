@@ -51,7 +51,8 @@
 		93A534272933D60900328A4A /* AppleMusic */ = {
 			isa = PBXGroup;
 			children = (
-				93A534282933D60900328A4A /* AppleMusicApp.swift */,
+				93A534372933E60100328A4A /* App */,
+				93A534362933E5FA00328A4A /* View */,
 				93A5342A2933D60900328A4A /* ContentView.swift */,
 				93A5342C2933D60F00328A4A /* Assets.xcassets */,
 				93A5342E2933D60F00328A4A /* Preview Content */,
@@ -65,6 +66,21 @@
 				93A5342F2933D60F00328A4A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		93A534362933E5FA00328A4A /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		93A534372933E60100328A4A /* App */ = {
+			isa = PBXGroup;
+			children = (
+				93A534282933D60900328A4A /* AppleMusicApp.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
