@@ -6,3 +6,11 @@
 //
 
 import Foundation
+import SwiftUI
+
+struct ListItemModel: Identifiable {
+    let id: String = UUID().uuidString
+    let text: String
+    let icon: String
+    var isSelected: Bool
+}
