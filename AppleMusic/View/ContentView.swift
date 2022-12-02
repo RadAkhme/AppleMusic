@@ -8,14 +8,45 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var isEditing = false
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationStack {
+            TabView {
+                VStack {
+                    if isEditing {
+                        ListView()
+                    } else {
+                        LibraryView()
+                    }
+                }
+                .tabItem {
+                    Image(systemName: "rectangle.stack.badge.play.fill")
+                    Text("Медиатека")
+                }
+                
+                RadioView()
+                    .tabItem {
+                        Image(systemName: "dot.radiowaves.left.and.right")
+                        Text("Радио")
+                    }
+                
+                SearchView()
+                    .tabItem {
+                        Image(systemName: "magnifyingglass")
+                        Text("Поиск")
+                    }
+            }
+            .accentColor(.red)
+            .navigationTitle("Медиатека")
+            .navigationBarItems(trailing: Button(action: {
+                isEditing.toggle()
+            }, label: {
+                Text(self.isEditing ? "Готово" : "Править")
+                    .foregroundColor(.red)
+            }))
         }
-        .padding()
     }
 }
 
