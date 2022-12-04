@@ -9,17 +9,21 @@ import SwiftUI
 
 struct LibraryView: View {
     var body: some View {
-        VStack {
-            Spacer()
-            Text("Ищете свою музыку?")
-                .font(.title2)
-                .bold()
-            Text("Здесь появиться купленная Вами в iTunes Store музыка.")
-                .multilineTextAlignment(.center)
-                .padding(.horizontal, 30.0)
-            Spacer()
-            MusicPlayer()
+        NavigationView {
+            VStack {
+                Spacer()
+                Text("Ищете свою музыку?")
+                    .font(.title2)
+                    .bold()
+                Text("Здесь появиться купленная Вами в iTunes Store музыка.")
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 30.0)
+                Spacer()
+                MusicPlayer()
+            }
+            .navigationTitle("Медиатека")
         }
+        
     }
 }
 
