@@ -12,8 +12,8 @@ struct ContentView: View {
     @State var isEditing = false
     
     var body: some View {
-        NavigationStack {
-            TabView {
+        TabView {
+            ZStack(alignment: .top) {
                 VStack {
                     if isEditing {
                         ListView()
@@ -21,32 +21,35 @@ struct ContentView: View {
                         LibraryView()
                     }
                 }
-                .tabItem {
-                    Image(systemName: "rectangle.stack.badge.play.fill")
-                    Text("Медиатека")
+                HStack(alignment: .top) {
+                    Spacer()
+                    Button(action: {
+                        isEditing.toggle()
+                    }, label: {
+                        Text(self.isEditing ? "Готово" : "Править")
+                            .foregroundColor(.red)
+                    })
+                    .padding()
                 }
-                
-                RadioView()
-                    .tabItem {
-                        Image(systemName: "dot.radiowaves.left.and.right")
-                        Text("Радио")
-                    }
-                
-                SearchView()
-                    .tabItem {
-                        Image(systemName: "magnifyingglass")
-                        Text("Поиск")
-                    }
             }
-            .accentColor(.red)
-            .navigationTitle("Медиатека")
-            .navigationBarItems(trailing: Button(action: {
-                isEditing.toggle()
-            }, label: {
-                Text(self.isEditing ? "Готово" : "Править")
-                    .foregroundColor(.red)
-            }))
+            .tabItem {
+                Image(systemName: "rectangle.stack.badge.play.fill")
+                Text("Медиатека")
+            }
+            
+            RadioView()
+                .tabItem {
+                    Image(systemName: "dot.radiowaves.left.and.right")
+                    Text("Радио")
+                }
+            
+            SearchView()
+                .tabItem {
+                    Image(systemName: "magnifyingglass")
+                    Text("Поиск")
+                }
         }
+        .accentColor(.red)
     }
 }
 

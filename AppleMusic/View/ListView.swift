@@ -10,7 +10,6 @@ import SwiftUI
 struct ListView: View {
     
     @State var selectedRow: String?
-    
     @State var musicItems = [
         ListItemModel(text: "Плейлисты", icon: "music.note.list", isSelected: false),
         ListItemModel(text: "Артисты", icon: "music.mic", isSelected: false),
@@ -26,29 +25,31 @@ struct ListView: View {
     ]
     
     var body: some View {
-        VStack {
-            List(selection: $selectedRow) {
-                ForEach($musicItems) { $item in
-                    HStack {
-                        Image(systemName: item.isSelected ? "checkmark.circle.fill" : "circle")
-                            .onTapGesture {
-                                item.isSelected.toggle()
-                            }
-                            .foregroundColor(item.isSelected ? .red : .gray)
-                        Image(systemName: item.icon)
-                            .foregroundColor(.red)
-                        Text(item.text)
+        NavigationView {
+            VStack {
+                List(selection: $selectedRow) {
+                    ForEach($musicItems) { $item in
+                        HStack {
+                            Image(systemName: item.isSelected ? "checkmark.circle.fill" : "circle")
+                                .onTapGesture {
+                                    item.isSelected.toggle()
+                                }
+                                .foregroundColor(item.isSelected ? .red : .gray)
+                            Image(systemName: item.icon)
+                                .foregroundColor(.red)
+                            Text(item.text)
+                        }
                     }
+                    .onMove(perform: moveItem)
                 }
-                .onMove(perform: moveItem)
+                .listStyle(.plain)
+                .environment(\.editMode, .constant(EditMode.active))
+                
+                Spacer()
+                MusicPlayer()
             }
-            .listStyle(.plain)
-            .environment(\.editMode, .constant(EditMode.active))
-            
-            Spacer()
-            MusicPlayer()
+            .navigationBarTitle("Медиатека")
         }
-        
     }
     
     func moveItem(from: IndexSet, to: Int) {

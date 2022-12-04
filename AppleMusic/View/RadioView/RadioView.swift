@@ -9,11 +9,14 @@ import SwiftUI
 
 struct RadioView: View {
     var body: some View {
-        VStack {
-            Spacer()
-            Text("Радио")
-            Spacer()
-            MusicPlayer()
+        NavigationView {
+            ScrollView(.vertical, showsIndicators: false) {
+                TopRadioView()
+                Divider()
+                    .padding(.horizontal)
+                BottomRadioView()
+            }
+            .navigationTitle("Радио")
         }
     }
 }
