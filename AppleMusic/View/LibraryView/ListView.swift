@@ -10,25 +10,13 @@ import SwiftUI
 struct ListView: View {
     
     @State var selectedRow: String?
-    @State var musicItems = [
-        ListItemModel(text: "Плейлисты", icon: "music.note.list", isSelected: false),
-        ListItemModel(text: "Артисты", icon: "music.mic", isSelected: false),
-        ListItemModel(text: "Альбомы", icon: "square.stack", isSelected: false),
-        ListItemModel(text: "Песни", icon: "music.note", isSelected: false),
-        ListItemModel(text: "Телешоу и фильмы", icon: "tv", isSelected: false),
-        ListItemModel(text: "Видеоклипы", icon: "music.note.tv", isSelected: false),
-        ListItemModel(text: "Жанры", icon: "guitars", isSelected: false),
-        ListItemModel(text: "Сборники", icon: "person.2.crop.square.stack", isSelected: false),
-        ListItemModel(text: "Авторы", icon: "music.quarternote.3", isSelected: false),
-        ListItemModel(text: "Загружено", icon: "arrow.down.circle", isSelected: false),
-        ListItemModel(text: "Домашняя коллекция", icon: "music.note.house", isSelected: false)
-    ]
+    @ObservedObject var musicItems = ListItemModel()
     
     var body: some View {
         NavigationView {
             VStack {
                 List(selection: $selectedRow) {
-                    ForEach($musicItems) { $item in
+                    ForEach($musicItems.musicItems) { $item in
                         HStack {
                             Image(systemName: item.isSelected ? "checkmark.circle.fill" : "circle")
                                 .onTapGesture {
@@ -46,6 +34,7 @@ struct ListView: View {
                 .environment(\.editMode, .constant(EditMode.active))
                 
                 Spacer()
+                
                 MusicPlayer()
             }
             .navigationBarTitle("Медиатека")
@@ -53,7 +42,7 @@ struct ListView: View {
     }
     
     func moveItem(from: IndexSet, to: Int) {
-        musicItems.move(fromOffsets: from, toOffset: to)
+        musicItems.musicItems.move(fromOffsets: from, toOffset: to)
     }
 }
 

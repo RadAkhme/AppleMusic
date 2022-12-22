@@ -9,19 +9,22 @@ import SwiftUI
 
 struct TopRadioView: View {
     
+    @ObservedObject var radioItems = RadioItemsModel()
     var rows = [GridItem(.fixed(300), spacing: 10)]
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHGrid(rows: rows) {
-                ForEach(RadioModel.radioItems) { index in
+                ForEach(radioItems.radioItems) { index in
                     VStack (alignment: .leading){
                         Text("Избранная радиостанция")
                             .font(.system(size: 16))
                             .foregroundColor(.gray)
+                        
                         Text(index.title)
                             .font(.system(size: 18))
                             .bold()
+                        
                         Image(index.image)
                             .resizable()
                             .aspectRatio(contentMode: .fill)

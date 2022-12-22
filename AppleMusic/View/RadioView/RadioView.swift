@@ -10,13 +10,19 @@ import SwiftUI
 struct RadioView: View {
     var body: some View {
         NavigationView {
-            ScrollView(.vertical, showsIndicators: false) {
-                TopRadioView()
-                Divider()
-                    .padding(.horizontal)
-                BottomRadioView()
+            VStack {
+                ScrollView(.vertical, showsIndicators: false) {
+                    TopRadioView()
+                    
+                    Divider()
+                        .padding(.horizontal)
+                    
+                    BottomRadioView()
+                }
+                .navigationTitle("Радио")
+                
+                MusicPlayer()
             }
-            .navigationTitle("Радио")
         }
     }
 }

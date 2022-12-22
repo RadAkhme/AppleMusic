@@ -23,7 +23,6 @@ struct LibraryView: View {
             }
             .navigationTitle("Медиатека")
         }
-        
     }
 }
 

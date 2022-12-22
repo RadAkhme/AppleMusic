@@ -21,6 +21,7 @@ struct ContentView: View {
                         LibraryView()
                     }
                 }
+                
                 HStack(alignment: .top) {
                     Spacer()
                     Button(action: {
