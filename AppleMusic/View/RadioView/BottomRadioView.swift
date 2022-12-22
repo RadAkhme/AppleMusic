@@ -9,6 +9,8 @@ import SwiftUI
 
 struct BottomRadioView: View {
     
+    @ObservedObject var radioItems = RadioItemsModel()
+    
     var columns = [GridItem(.flexible())]
     
     var body: some View {
@@ -18,7 +20,8 @@ struct BottomRadioView: View {
                     .font(.title)
                     .bold()
                     .padding(.horizontal)
-                ForEach(RadioModel.radioItems) { index in
+                
+                ForEach(radioItems.radioItems) { index in
                     HStack {
                         Image(index.image)
                             .resizable()
@@ -26,17 +29,19 @@ struct BottomRadioView: View {
                             .frame(width: 120, height: 120, alignment: .center)
                             .clipShape(Rectangle())
                             .padding(.leading, 15)
+                        
                         VStack(alignment: .leading) {
                             Text(index.title)
                                 .bold()
+                            
                             Text(index.description)
                                 .font(.system(size: 14))
                                 .foregroundColor(.gray)
-//                                .lineLimit(0)
                         }
                         .padding(.leading, 5)
                     }
                     .padding(.trailing)
+                    
                     Divider()
                         .padding(.horizontal)
                 }
