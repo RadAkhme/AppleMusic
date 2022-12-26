@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9383878E2958DD34006D1B6D /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9383878C2958DD33006D1B6D /* SearchCollectionViewCell.swift */; };
+		9383878F2958DD34006D1B6D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9383878D2958DD34006D1B6D /* SearchViewController.swift */; };
+		938387912958E03B006D1B6D /* UIKitListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938387902958E03B006D1B6D /* UIKitListView.swift */; };
+		93849317295A1F2E0021D661 /* SearchCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93849316295A1F2E0021D661 /* SearchCollectionHeaderView.swift */; };
 		938925F92954C95400DB30F1 /* RadioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938925F82954C95400DB30F1 /* RadioModel.swift */; };
 		938925FB2954C9AA00DB30F1 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938925FA2954C9AA00DB30F1 /* SearchModel.swift */; };
 		938925FD2954CA1300DB30F1 /* MusicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938925FC2954CA1300DB30F1 /* MusicModel.swift */; };
@@ -31,6 +35,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9383878C2958DD33006D1B6D /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchCollectionViewCell.swift; path = ../../../../../Search/Search/SearchCollectionViewCell.swift; sourceTree = "<group>"; };
+		9383878D2958DD34006D1B6D /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = ../../../../../Search/Search/SearchViewController.swift; sourceTree = "<group>"; };
+		938387902958E03B006D1B6D /* UIKitListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitListView.swift; sourceTree = "<group>"; };
+		93849316295A1F2E0021D661 /* SearchCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionHeaderView.swift; sourceTree = "<group>"; };
 		938925F82954C95400DB30F1 /* RadioModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioModel.swift; sourceTree = "<group>"; };
 		938925FA2954C9AA00DB30F1 /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
 		938925FC2954CA1300DB30F1 /* MusicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicModel.swift; sourceTree = "<group>"; };
@@ -66,6 +74,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9383876029576EAD006D1B6D /* UIKitSearchView */ = {
+			isa = PBXGroup;
+			children = (
+				9383878C2958DD33006D1B6D /* SearchCollectionViewCell.swift */,
+				9383878D2958DD34006D1B6D /* SearchViewController.swift */,
+				938387902958E03B006D1B6D /* UIKitListView.swift */,
+				93849316295A1F2E0021D661 /* SearchCollectionHeaderView.swift */,
+			);
+			path = UIKitSearchView;
+			sourceTree = "<group>";
+		};
 		938925FE2954E3BC00DB30F1 /* MusicPlayer */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +183,7 @@
 		93AE22CF294641FD004BA9AA /* SearchView */ = {
 			isa = PBXGroup;
 			children = (
+				9383876029576EAD006D1B6D /* UIKitSearchView */,
 				93A22BDE293A441D00A5D595 /* SearchView.swift */,
 				93BCAFA1294FA3F70052B258 /* SearchBar.swift */,
 				93BCAFA3294FA5020052B258 /* SearchСompilationItem.swift */,
@@ -247,13 +267,17 @@
 				93A22BD9293925FC00A5D595 /* ListModel.swift in Sources */,
 				93BCAFA829523CA10052B258 /* SearchResultView.swift in Sources */,
 				93BCAFA4294FA5020052B258 /* SearchСompilationItem.swift in Sources */,
+				938387912958E03B006D1B6D /* UIKitListView.swift in Sources */,
 				938925FD2954CA1300DB30F1 /* MusicModel.swift in Sources */,
 				938925FB2954C9AA00DB30F1 /* SearchModel.swift in Sources */,
+				9383878E2958DD34006D1B6D /* SearchCollectionViewCell.swift in Sources */,
 				93A22BDD293A42B100A5D595 /* RadioView.swift in Sources */,
 				939A0CD92947AA870095EB3D /* MusicPlayerFullScreen.swift in Sources */,
+				93849317295A1F2E0021D661 /* SearchCollectionHeaderView.swift in Sources */,
 				93A22BD6293917CF00A5D595 /* ListView.swift in Sources */,
 				93A22C00293CD61700A5D595 /* BottomRadioView.swift in Sources */,
 				93BCAFAA295390210052B258 /* SearchResultsItem.swift in Sources */,
+				9383878F2958DD34006D1B6D /* SearchViewController.swift in Sources */,
 				93BCAFA2294FA3F70052B258 /* SearchBar.swift in Sources */,
 				93A22BDB293A416400A5D595 /* MusicPlayer.swift in Sources */,
 				93A22BDF293A441D00A5D595 /* SearchView.swift in Sources */,
@@ -404,7 +428,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.my.AppleMusic;
+				PRODUCT_BUNDLE_IDENTIFIER = com.my.AppleMusicTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -433,7 +457,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.my.AppleMusic;
+				PRODUCT_BUNDLE_IDENTIFIER = com.my.AppleMusicTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
