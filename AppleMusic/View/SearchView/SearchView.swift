@@ -11,6 +11,7 @@ struct SearchView: View {
     
     @State var searchText = ""
     @State var isEditing = false
+    @State var isPresented = false
     
     var body: some View {
         NavigationView {
@@ -24,7 +25,11 @@ struct SearchView: View {
                         BottomRadioView()
                             .navigationTitle("Подборка")
                     } label: {
-                        SearchCompilationItem()
+                        if isPresented {
+                            UIKitListView()
+                        } else {
+                            SearchCompilationItem()
+                        }
                     }
                 } else {
                     SearchResultsView(searchText: $searchText)
@@ -36,6 +41,14 @@ struct SearchView: View {
                 MusicPlayer()
             }
             .navigationTitle("Поиск")
+            .navigationBarItems(trailing: HStack{
+                Button(action: {
+                    isPresented.toggle()
+                }, label: {
+                    Text(isPresented ? "SwiftUI" : "UIKit")
+                })
+                .foregroundColor(.red)
+            })
         }
     }
 }
