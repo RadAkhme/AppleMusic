@@ -11,9 +11,9 @@ struct SearchCompilationItem: View {
     
     @ObservedObject var searchItems = SearchItemsModel()
     
-    var columns = [
-        GridItem(.adaptive(minimum: 100, maximum: 300)),
-        GridItem(.adaptive(minimum: 100, maximum: 300))
+    var columns: [GridItem] = [
+        GridItem(.flexible(), spacing: 12),
+        GridItem(.flexible(), spacing: 12)
     ]
     
     var body: some View {
@@ -31,25 +31,7 @@ struct SearchCompilationItem: View {
                 
                 LazyVGrid(columns: columns) {
                     ForEach(searchItems.searchItems) { index in
-                        ZStack(alignment: .bottom) {
-                            Image(index.searchImage)
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 175, height: 120)
-                                .clipShape(Rectangle())
-                                .cornerRadius(10)
-                            
-                            HStack {
-                                VStack(alignment: .leading) {
-                                    Text(index.searchName)
-                                        .foregroundColor(.white)
-                                        .font(.system(size: 15, weight: .bold))
-                                        .padding(10)
-                                }
-                                
-                                Spacer()
-                            }
-                        }
+                        SearchItemView(categoryImage: index.searchImage, categoryTitle: index.searchName)
                     }
                 }
                 .padding(.horizontal, 15)
