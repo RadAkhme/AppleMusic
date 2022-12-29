@@ -36,8 +36,6 @@ struct SearchView: View {
                         .navigationBarHidden(true)
                 }
                 
-                Spacer()
-                
                 MusicPlayer()
             }
             .navigationTitle("Поиск")
